@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package version="3.0" xmlns="http://www.idpf.org/2007/opf"
+         unique-identifier="BookId">
+ <metadata xmlns:dc="http://purl.org/dc/elements/1.1/"
+           xmlns:dcterms="http://purl.org/dc/terms/">
+   <dc:identifier id="BookId">com.kobu.epubsample.yoko</dc:identifier>
+   <dc:date>{{ publish_date }}</dc:date><!-- publish date -->
+   <meta property="dcterms:modified">{{ publish_date }}</meta><!-- revision date -->
+   <dc:title>{{ title }}</dc:title>
+   <dc:contributor>Unknown</dc:contributor><!-- as original author -->
+   <dc:creator>shrkw</dc:creator><!-- as an editor of this book -->
+   <dc:language>ja</dc:language>
+   <dc:rights>Follow Twitter's description</dc:rights>
+   <dc:publisher>shrkw</dc:publisher>
+   <!-- <meta property="page-progression-direction">ltr</meta> --><!-- obsolete way -->
+ </metadata>
+ <manifest>
+  <item properties="nav" media-type="application/xhtml+xml" id="navdoc" href="navdoc.html"/><!-- 3.0 toc -->
+  <item id="tocncx" href="toc.ncx" media-type="application/x-dtbncx+xml" /><!-- 2.0 toc -->
+  <item id="titlepage" href="title_page.xhtml" media-type="application/xhtml+xml" />
+  {%- for tog in togs %}
+  <item id="chapter{{ loop.index }}" href="chap{{ loop.index }}.xhtml" media-type="application/xhtml+xml" />
+  {%- endfor %}
+ </manifest>
+ <spine toc="tocncx" page-progression-direction="ltr"><!-- recommended new way -->
+  <itemref idref="titlepage" />
+  {%- for tog in togs %}
+  <itemref idref="chapter{{ loop.index }}" />
+  {%- endfor %}
+ </spine>
+</package>

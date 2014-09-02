@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- doctype removed -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja"><!-- "ja" added -->
+<head>
+<title>{{ tog.title }}</title>
+</head>
+<body>
+  <h2>{{ tog.title }}</h2>
+  <div>
+  {%- for e in tog.entries %}
+  <p>{{ e }}</p>
+  {%- endfor %}
+  </div>
+</body>
+</html>

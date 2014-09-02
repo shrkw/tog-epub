@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<title>目次</title>
+</head>
+<body>
+
+<nav xmlns:epub="http://www.idpf.org/2007/ops" epub:type="toc">
+    <h1>{{ title }}</h1>
+<ol>
+  <li><a href="title_page.xhtml">タイトルページ</a></li>
+  {%- for tog in togs %}
+  <li><a href="chap{{ loop.index }}.xhtml">Chapter {{ loop.index }}</a></li>
+  {%- endfor %}
+</ol>
+</nav>
+</body>
+</html>

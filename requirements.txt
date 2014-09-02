@@ -1,0 +1,5 @@
+beautifulsoup4==4.3.2
+certifi==14.05.14
+requests==2.4.0
+Jinja2==2.7.3
+MarkupSafe==0.23

@@ -13,16 +13,12 @@ Setup
 
 ### Resolve project dependencies
 
-::
-
-  pip install -r requirements.txt
+    pip install -r requirements.txt
 
 Usage
 --------------
 
-::
-
-  python main.py 001 002 003
+    python main.py 001 002 003
 
 The artifact will be stored to `dist` directory.
 

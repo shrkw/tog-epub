@@ -46,7 +46,7 @@ class Publisher(object):
             with open('%s/OEBPS/%s' % (self.export_dir, file_name), 'w') as f:
                 f.write(tpl.render(data))
 
-        write('content.opf', { 'title': self.title, 'publish_date': publish_date, 'togs': self.togetters })
+        write('content.opf', { 'title': self.title, 'tids': '.'.join(map(lambda tog: str(tog.tid), self.togetters)), 'publish_date': publish_date, 'togs': self.togetters })
         write('title_page.xhtml', { 'title': self.title, 'publish_date': publish_date, 'togs': self.togetters })
         write('navdoc.html', { 'title': self.title, 'togs': self.togetters })
         write('toc.ncx', { 'title': self.title, 'togs': self.togetters })

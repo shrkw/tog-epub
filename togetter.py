@@ -12,13 +12,14 @@ class Togetter:
         self.title = None
         self.tid = tid
         self.entries = []
+        self.uri = "%s/li/%d" % (Togetter.base_url, self.tid)
 
     def __set_title(self, title):
         if self.title is None:
             self.title = title
 
     def read(self, path=None):
-        url = "%s/li/%d" % (t2e.base_url, self.tid) if path is None else "%s/%s" % (t2e.base_url, path)
+        url = self.uri if path is None else "%s/%s" % (Togetter.base_url, path)
         response = requests.get(url)
         cookie = response.cookies.get_dict()
 
@@ -41,7 +42,7 @@ class Togetter:
         if len(rest) == 1:
             # rstr = rest[0]["onclick"]
             # page = int(rstr.split(",", 1)[1].strip(");"))
-            url = "%s/api/moreTweets/%d" % (t2e.base_url, self.tid)
+            url = "%s/api/moreTweets/%d" % (Togetter.base_url, self.tid)
             r2 = requests.post(url, data={"csrf_token": self.csrf_token}, cookies=cookie)
 
             def f2(soup):

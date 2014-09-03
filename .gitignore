@@ -1,6 +1,7 @@
 # Created by http://www.gitignore.io
 
 work/
+dist/
 
 ### Python ###
 # Byte-compiled / optimized / DLL files

@@ -11,7 +11,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     togs = []
-    for tid in tids:
+    for tid in args.tids:
         tog = togetter.Togetter(tid)
         tog.read()
         togs.append(tog)

@@ -2,14 +2,18 @@
 <!-- doctype removed -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja"><!-- "ja" added -->
 <head>
+<link href="stylesheet.css" type="text/css" rel="stylesheet" />
 <title>{{ tog.title }}</title>
 </head>
 <body>
-  <h2>{{ tog.title }}</h2>
-  <div>
-  {%- for e in tog.entries %}
-  <p>{{ e }}</p>
-  {%- endfor %}
-  </div>
+    <h2>{{ tog.title }}</h2>
+    <div class="header">
+        <small>Original page: <a href="{{ tog.uri }}">{{ tog.uri }}</a></small>
+    </div>
+    <div class="content">
+        {%- for e in tog.entries %}
+        <p>{{ e }}</p>
+        {%- endfor %}
+    </div>
 </body>
 </html>

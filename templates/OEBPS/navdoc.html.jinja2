@@ -10,7 +10,7 @@
 <ol>
   <li><a href="title_page.xhtml">タイトルページ</a></li>
   {%- for tog in togs %}
-  <li><a href="chap{{ loop.index }}.xhtml">Chapter {{ loop.index }}</a></li>
+  <li><a href="chap{{ loop.index }}.xhtml">{{ tog.title }}</a></li>
   {%- endfor %}
 </ol>
 </nav>

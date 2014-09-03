@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja"><!-- "ja" added -->
 <head>
+<link href="stylesheet.css" type="text/css" rel="stylesheet" />
 <title>{{ title }}</title>
 </head>
 <body>
-    <h1>{{ title }}</h1>
-
-  <h4>Published by togetter_epub</h4>
-  <h4>Published at {{ publish_date }}</h4>
-
-  <h4><a href="http://www.kobu.com/docs/epub/">www.kobu.com/docs/epub</a></h4>
-  <h4></h4>
+    <div class="title_container">
+        <h1>{{ title }}</h1>
+        <div class="title_desc">
+            Published by togetter_epub<br/>
+            Published at {{ publish_date }}<br/>
+            <br/>
+            この書籍は以下のコンテンツを含んでいます:<br/>
+            This book contains following contents:
+            <ol>
+                {%- for tog in togs %}
+                <li><a href="{{ tog.uri }}">{{ tog.uri }}</a></li>
+                {%- endfor %}
+            </ol>
+        </div>
+    </div>
 </body>
 </html>

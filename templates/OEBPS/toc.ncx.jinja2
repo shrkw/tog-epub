@@ -19,7 +19,7 @@
     {%- for tog in togs %}
     <navPoint id="chapter{{ loop.index }}" playOrder="{{ loop.index + 1 }}">
       <navLabel>
-        <text>チャプター {{ loop.index }}</text>
+        <text>{{ tog.title }}</text>
       </navLabel>
       <content src="chap{{ loop.index }}.xhtml"/>
     </navPoint>

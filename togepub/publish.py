@@ -1,13 +1,15 @@
-#! /usr/bin/env python
-# encoding: UTF-8
+#!/bin/env python
+# coding:utf-8
 
+from __future__ import division, print_function, absolute_import
 import jinja2
 import datetime
 import shutil
 import os
-import togetter
 import zipfile
 import glob
+
+from . import togetter
 
 class Publisher(object):
 

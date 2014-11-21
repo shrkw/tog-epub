@@ -1,9 +1,11 @@
-#! /usr/bin/env python
+#!/bin/env python
 # encoding: UTF-8
 
-import togetter
-import publish
+from __future__ import division, print_function, absolute_import
 import argparse
+
+from togepub import togetter
+from togepub import publish
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='from togetter to epub')

@@ -2,6 +2,7 @@
 
 work/
 dist/
+.vagrant
 
 ### Python ###
 # Byte-compiled / optimized / DLL files

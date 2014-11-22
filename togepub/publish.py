@@ -39,7 +39,7 @@ class Publisher(object):
         self.create_dist_dir()
 
         publish_date = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
-        env = jinja2.Environment(loader=jinja2.FileSystemLoader('./templates/OEBPS/', encoding='utf8'), autoescape=True)
+        env = jinja2.Environment(loader=jinja2.FileSystemLoader('./templates/OEBPS/', encoding='utf8'))
 
         def write(file_name, data, chap=None):
             tpl = env.get_template('%s.jinja2' % file_name)

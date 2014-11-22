@@ -22,8 +22,8 @@ class Togetter:
     def parse(self, r, func):
         r.encoding = 'utf-8'
         soup = BeautifulSoup(r.text)
-        for tweet in soup.find_all("div", {"class": "tweet"}):
-            self.entries.append(tweet.text)
+        for tweet in soup.find_all("li", {"class": "list_item"}):
+            self.entries.append(str(tweet))
         return func(soup)
 
     def f1(self, soup):

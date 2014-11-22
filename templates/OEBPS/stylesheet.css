@@ -1,4 +1,7 @@
-
+p {
+  margin-bottom: 0em;
+}
+/*
 div.header {
   text-align: right;
 }
@@ -10,3 +13,4 @@ div.title_container {
 div.title_desc {
   margin-top: 3em;
 }
+*/

@@ -2,8 +2,13 @@
 # coding:utf-8
 
 from __future__ import division, print_function, absolute_import
+from collections import namedtuple
 import requests
 from bs4 import BeautifulSoup
+
+Author = namedtuple('Author', ['link', 'name', 'id'])
+Tweet = namedtuple('Tweet', ['timestamp', 'link', 'date','text'])
+Entry = namedtuple('Entry', ['author', 'tweet'])
 
 class Togetter:
 
@@ -22,8 +27,15 @@ class Togetter:
     def parse(self, r, func):
         r.encoding = 'utf-8'
         soup = BeautifulSoup(r.text)
-        for tweet in soup.find_all("li", {"class": "list_item"}):
-            self.entries.append(str(tweet))
+        for twt in soup.find_all("li", {"class": "list_item"}):
+            a = Author(twt.find("a", {"class": "user_link"}).attrs["href"],
+                       twt.find("strong").text,
+                       twt.find("span", {"class": "status_name"}).text)
+            t = Tweet(twt.find("a", {"class": "timestamp"}).attrs["data-timestamp"],
+                      twt.find("a", {"class": "timestamp"}).attrs["href"],
+                      twt.find("a", {"class": "timestamp"}).text,
+                      twt.find("div", {"class": "tweet"}).text)
+            self.entries.append(Entry(a, t))
         return func(soup)
 
     def f1(self, soup):

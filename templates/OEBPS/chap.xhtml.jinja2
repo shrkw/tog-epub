@@ -2,7 +2,8 @@
 <!-- doctype removed -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja"><!-- "ja" added -->
 <head>
-<link href="twitter.css" type="text/css" rel="stylesheet" />
+    <link href="normalize.css" type="text/css" rel="stylesheet" />
+    <link href="stylesheet.css" type="text/css" rel="stylesheet" />
 <title>{{ tog.title }}</title>
 </head>
 <body>
@@ -11,9 +12,24 @@
         <small>Original page: <a href="{{ tog.uri }}">{{ tog.uri }}</a></small>
     </div>
     <div class="content">
+        <ul>
         {%- for e in tog.entries %}
-        <div>{{ e }}</div>
+            <li class="list_item">
+                <div class="tweet_header cf">
+                    <div class="author">
+                        <a class="user_link" href="{{ e.author.link }}" target="_blank">
+                            <strong class="twitter_name">{{ e.author.name }}</strong> <span class="twitter_id">{{ e.author.id }}</span>
+                        </a>
+                        <a class="timestamp" data-timestamp="{{ e.tweet.timestamp }}" href="{{ e.tweet.link }}" target="_blank">{{ e.tweet.date }}</a>
+                    </div>
+                </div>
+                <div class="tweet_text">
+                    <p>{{ e.tweet.text }}</p>
+                </div>
+                <div class="tweet_footer"></div>
+            </li>
         {%- endfor %}
+        </ul>
     </div>
 </body>
 </html>
